@@ -1,0 +1,143 @@
+export default function ContactPage() {
+  return (
+    <main className="min-h-screen bg-black text-white">
+      <section className="mx-auto max-w-6xl px-6 py-24">
+        <p className="text-sm uppercase tracking-[0.2em] text-zinc-400">
+          Contact
+        </p>
+
+        <h1 className="mt-4 max-w-4xl text-5xl font-semibold leading-tight md:text-7xl">
+          Let’s build your next growth system.
+        </h1>
+
+        <p className="mt-6 max-w-2xl text-lg text-zinc-400">
+          Tell us about your audience, your community, and where you want to
+          grow. We’ll review your setup and identify the best next move.
+        </p>
+      </section>
+
+      <section className="mx-auto grid max-w-6xl gap-8 px-6 pb-24 md:grid-cols-[1.1fr_0.9fr]">
+        <div className="rounded-3xl border border-zinc-800 bg-zinc-950 p-8">
+          <h2 className="text-2xl font-semibold">Send an inquiry</h2>
+          <p className="mt-3 max-w-xl text-zinc-400">
+            This can be a simple contact form for now. Later, you can connect it
+            to Formspree, Resend, or your CRM.
+          </p>
+
+          <form className="mt-8 space-y-5">
+            <div>
+              <label className="mb-2 block text-sm text-zinc-300" htmlFor="name">
+                Name
+              </label>
+              <input
+                id="name"
+                type="text"
+                placeholder="Your name"
+                className="w-full rounded-2xl border border-zinc-800 bg-black px-4 py-3 text-white outline-none transition placeholder:text-zinc-500 focus:border-zinc-600"
+              />
+            </div>
+
+            <div>
+              <label className="mb-2 block text-sm text-zinc-300" htmlFor="email">
+                Email
+              </label>
+              <input
+                id="email"
+                type="email"
+                placeholder="you@example.com"
+                className="w-full rounded-2xl border border-zinc-800 bg-black px-4 py-3 text-white outline-none transition placeholder:text-zinc-500 focus:border-zinc-600"
+              />
+            </div>
+
+            <div>
+              <label className="mb-2 block text-sm text-zinc-300" htmlFor="platform">
+                Main platform
+              </label>
+              <input
+                id="platform"
+                type="text"
+                placeholder="Instagram, YouTube, Discord, Telegram..."
+                className="w-full rounded-2xl border border-zinc-800 bg-black px-4 py-3 text-white outline-none transition placeholder:text-zinc-500 focus:border-zinc-600"
+              />
+            </div>
+
+            <div>
+              <label className="mb-2 block text-sm text-zinc-300" htmlFor="message">
+                What do you need help with?
+              </label>
+              <textarea
+                id="message"
+                rows={6}
+                placeholder="Tell us about your community, audience size, goals, and current challenges."
+                className="w-full rounded-2xl border border-zinc-800 bg-black px-4 py-3 text-white outline-none transition placeholder:text-zinc-500 focus:border-zinc-600"
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="rounded-full bg-white px-6 py-3 text-black transition hover:opacity-90"
+            >
+              Send Request
+            </button>
+          </form>
+        </div>
+
+        <div className="space-y-6">
+          <div className="rounded-3xl border border-zinc-800 bg-zinc-950 p-8">
+            <p className="text-sm uppercase tracking-[0.2em] text-zinc-400">
+              What happens next
+            </p>
+            <h2 className="mt-4 text-2xl font-semibold">
+              A simple, fast process.
+            </h2>
+
+            <div className="mt-6 space-y-4">
+              <div className="rounded-2xl border border-zinc-800 bg-black p-5">
+                <h3 className="font-medium">1. Initial review</h3>
+                <p className="mt-2 text-sm text-zinc-400">
+                  We review your inquiry, current setup, and growth goals.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-zinc-800 bg-black p-5">
+                <h3 className="font-medium">2. Strategy fit</h3>
+                <p className="mt-2 text-sm text-zinc-400">
+                  We identify where community, monetization, or automation can
+                  create the most impact.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-zinc-800 bg-black p-5">
+                <h3 className="font-medium">3. Next steps</h3>
+                <p className="mt-2 text-sm text-zinc-400">
+                  If there’s a fit, we define the best offer and implementation
+                  path.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="rounded-3xl border border-zinc-800 bg-zinc-950 p-8">
+            <p className="text-sm uppercase tracking-[0.2em] text-zinc-400">
+              Prefer a direct call?
+            </p>
+            <h2 className="mt-4 text-2xl font-semibold">
+              Add Calendly in this block later.
+            </h2>
+            <p className="mt-3 text-zinc-400">
+              You can replace this section with your booking link or an embedded
+              scheduling widget once you’re ready.
+            </p>
+
+            <a
+              href="#"
+              className="mt-6 inline-block rounded-full border border-zinc-700 px-6 py-3 text-white transition hover:border-zinc-500"
+            >
+              Booking link placeholder
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}

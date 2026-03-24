@@ -1,0 +1,158 @@
+export default function SolutionsPage() {
+  const solutions = [
+    {
+      title: "Community Growth System",
+      description:
+        "We design engagement systems that turn passive followers into active communities through structure, consistency, and retention loops.",
+      points: [
+        "Community positioning and structure",
+        "Engagement strategy and activation loops",
+        "Retention systems and member experience",
+        "Platform workflow optimization",
+      ],
+    },
+    {
+      title: "Monetization Infrastructure",
+      description:
+        "We help creators build the path from audience attention to recurring revenue with offers, funnels, and community-based conversion systems.",
+      points: [
+        "Paid community strategy",
+        "Offer and funnel mapping",
+        "Conversion-focused onboarding",
+        "Member journey optimization",
+      ],
+    },
+    {
+      title: "AI Automation Layer",
+      description:
+        "We add automation where it matters most, so creators can scale operations, onboarding, and communication without adding more manual work.",
+      points: [
+        "Automated onboarding flows",
+        "Lead and DM automation",
+        "Content support systems",
+        "Workflow simplification",
+      ],
+    },
+  ];
+
+  return (
+    <main className="min-h-screen bg-black text-white">
+      <section className="mx-auto max-w-6xl px-6 py-24">
+        <p className="text-sm uppercase tracking-[0.2em] text-zinc-400">
+          Solutions
+        </p>
+
+        <h1 className="mt-4 max-w-4xl text-5xl font-semibold leading-tight md:text-7xl">
+          Growth systems for creators who want more than community management.
+        </h1>
+
+        <p className="mt-6 max-w-2xl text-lg text-zinc-400">
+          We help creators grow stronger communities, build monetization
+          systems, and introduce AI automation that reduces manual work and
+          increases scale.
+        </p>
+      </section>
+
+      <section className="mx-auto grid max-w-6xl gap-6 px-6 pb-24 md:grid-cols-3">
+        {solutions.map((item) => (
+          <div
+            key={item.title}
+            className="rounded-3xl border border-zinc-800 bg-zinc-950 p-8"
+          >
+            <h2 className="text-2xl font-semibold">{item.title}</h2>
+            <p className="mt-4 text-zinc-400">{item.description}</p>
+
+            <ul className="mt-6 space-y-3 text-sm text-zinc-300">
+              {item.points.map((point) => (
+                <li key={point} className="border-t border-zinc-800 pt-3">
+                  {point}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </section>
+
+      <section className="border-t border-zinc-900">
+        <div className="mx-auto max-w-6xl px-6 py-24">
+          <div className="grid gap-10 md:grid-cols-2 md:items-center">
+            <div>
+              <p className="text-sm uppercase tracking-[0.2em] text-zinc-400">
+                How it works
+              </p>
+              <h2 className="mt-4 text-4xl font-semibold md:text-5xl">
+                A simple system built for growth.
+              </h2>
+            </div>
+
+            <div className="space-y-6">
+              <div className="rounded-2xl border border-zinc-800 bg-zinc-950 p-6">
+                <h3 className="text-lg font-medium">1. Audit</h3>
+                <p className="mt-2 text-zinc-400">
+                  We review your audience, community structure, offer flow, and
+                  current bottlenecks.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-zinc-800 bg-zinc-950 p-6">
+                <h3 className="text-lg font-medium">2. Strategy</h3>
+                <p className="mt-2 text-zinc-400">
+                  We design the right community, monetization, and automation
+                  approach for your stage.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-zinc-800 bg-zinc-950 p-6">
+                <h3 className="text-lg font-medium">3. Execution</h3>
+                <p className="mt-2 text-zinc-400">
+                  We implement the systems, improve flows, and create a more
+                  scalable setup.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-zinc-800 bg-zinc-950 p-6">
+                <h3 className="text-lg font-medium">4. Optimization</h3>
+                <p className="mt-2 text-zinc-400">
+                  We refine performance over time so the system keeps improving
+                  as you grow.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-zinc-900">
+        <div className="mx-auto max-w-6xl px-6 py-24">
+          <div className="rounded-3xl border border-zinc-800 bg-zinc-950 p-10 text-center">
+            <p className="text-sm uppercase tracking-[0.2em] text-zinc-400">
+              Next step
+            </p>
+            <h2 className="mt-4 text-3xl font-semibold md:text-5xl">
+              Ready to build a scalable creator growth system?
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-zinc-400">
+              Let’s look at your current setup and identify the fastest path to
+              stronger engagement, better conversion, and smarter automation.
+            </p>
+
+            <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <a
+                href="/contact"
+                className="rounded-full bg-white px-6 py-3 text-black transition hover:opacity-90"
+              >
+                Book a Call
+              </a>
+              <a
+                href="/"
+                className="rounded-full border border-zinc-700 px-6 py-3 text-white transition hover:border-zinc-500"
+              >
+                Back to Home
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}
