@@ -1,5 +1,7 @@
 import "./globals.css";
 import Link from "next/link";
+import Image from "next/image";
+import Footer from "./components/Footer";
 
 export const metadata = {
   title: "TheSpotMind",
@@ -15,13 +17,23 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-black text-white antialiased">
-        <header className="sticky top-0 z-50 border-b border-zinc-900 bg-black/80 backdrop-blur">
+        <header className="sticky top-0 z-50 border-b border-white/5 bg-black/70 backdrop-blur-xl">
           <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-            <Link href="/" className="text-xl font-semibold tracking-tight">
-              TheSpotMind
+            <Link href="/" className="flex items-center gap-3">
+              <Image
+                src="/logo-icon.png"
+                alt="TheSpotMind icon"
+                width={32}
+                height={32}
+                className="h-8 w-8 object-contain"
+                priority
+              />
+              <span className="text-xl font-semibold tracking-tight">
+                TheSpot<span className="text-blue-400">Mind</span>
+              </span>
             </Link>
 
-            <nav className="hidden items-center gap-6 text-sm text-zinc-300 md:flex">
+            <nav className="hidden items-center gap-8 text-sm text-zinc-300 md:flex">
               <Link href="/" className="transition hover:text-white">
                 Home
               </Link>
@@ -35,7 +47,7 @@ export default function RootLayout({
 
             <Link
               href="/contact"
-              className="rounded-full bg-white px-4 py-2 text-sm font-medium text-black transition hover:opacity-90"
+              className="rounded-full bg-white px-5 py-2.5 text-sm font-medium text-black transition hover:scale-[1.02]"
             >
               Book a Call
             </Link>
@@ -43,6 +55,8 @@ export default function RootLayout({
         </header>
 
         {children}
+
+        <Footer />
       </body>
     </html>
   );

@@ -1,39 +1,96 @@
+"use client";
+
+import { useState } from "react";
+
 export default function ContactPage() {
+  const [status, setStatus] = useState<"IDLE" | "LOADING" | "SUCCESS" | "ERROR">("IDLE");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus("LOADING");
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    const res = await fetch("https://formspree.io/f/xgopwgan", {
+      method: "POST",
+      body: data,
+      headers: {
+        Accept: "application/json",
+      },
+    });
+
+    if (res.ok) {
+      setStatus("SUCCESS");
+      form.reset();
+    } else {
+      setStatus("ERROR");
+    }
+  };
+
   return (
     <main className="min-h-screen bg-black text-white">
-      <section className="mx-auto max-w-4xl px-6 py-24">
+      <section className="mx-auto max-w-5xl px-6 py-24">
         <p className="text-sm uppercase tracking-[0.2em] text-zinc-400">
           Contact
         </p>
 
-        <h1 className="mt-4 text-5xl font-semibold md:text-6xl">
+        <h1 className="mt-4 max-w-4xl text-5xl font-semibold leading-tight md:text-7xl">
           Let’s build your growth system
         </h1>
 
-        <p className="mt-6 max-w-2xl text-lg text-zinc-400">
-          Tell us about your audience, community, and goals. We’ll help you map
-          the next move.
+        <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-400">
+          Tell us about your audience, community, and goals. We’ll help you map the next move.
         </p>
 
-        <form className="mt-10 space-y-5">
+        <form onSubmit={handleSubmit} className="mt-12 max-w-4xl space-y-6">
           <input
             type="text"
+            name="name"
             placeholder="Your name"
-            className="w-full rounded-xl border border-zinc-800 bg-black p-3"
+            required
+            className="w-full rounded-2xl border border-white/10 bg-black px-5 py-4 text-white placeholder:text-zinc-500 focus:border-white focus:outline-none"
           />
+
           <input
             type="email"
+            name="email"
             placeholder="Your email"
-            className="w-full rounded-xl border border-zinc-800 bg-black p-3"
+            required
+            className="w-full rounded-2xl border border-white/10 bg-black px-5 py-4 text-white placeholder:text-zinc-500 focus:border-white focus:outline-none"
           />
+
           <textarea
-            rows={5}
+            name="message"
             placeholder="Tell us about your project..."
-            className="w-full rounded-xl border border-zinc-800 bg-black p-3"
+            rows={6}
+            required
+            className="w-full rounded-2xl border border-white/10 bg-black px-5 py-4 text-white placeholder:text-zinc-500 focus:border-white focus:outline-none"
           />
-          <button className="rounded-full bg-white px-6 py-3 text-black">
-            Send Request
-          </button>
+
+          <div className="flex flex-col items-start gap-4">
+            <button
+              type="submit"
+              disabled={status === "LOADING"}
+              className="rounded-full bg-white px-6 py-3 text-black transition hover:bg-zinc-200 disabled:cursor-not-allowed disabled:opacity-60"
+            >
+              {status === "LOADING" ? "Sending..." : "Send Request"}
+            </button>
+
+            <p className="text-sm text-zinc-500">We typically respond within 24 hours.</p>
+
+            {status === "SUCCESS" && (
+              <p className="text-sm text-green-400">
+                Message sent. We&apos;ll get back to you soon.
+              </p>
+            )}
+
+            {status === "ERROR" && (
+              <p className="text-sm text-red-400">
+                Something went wrong. Please try again.
+              </p>
+            )}
+          </div>
         </form>
       </section>
     </main>
